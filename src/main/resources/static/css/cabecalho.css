@@ -10,19 +10,20 @@ body{
 	font-family: sans-serif;
 }
 
-nav{
-	background: #0000a0;
-	height: 80px;
+/*FUNDO DO NAVBAR*/
+/*nav{
+	background: #fff;
+	height: 250px;
 	width: 100%;
-}
+}*/
 
 label.logo {
-	color: white;
-	font-size: 35px;
-	line-height: 80px;
-	padding: 0 100px;
-	font-weight: bold;
+	
+	line-height: 100px;
+	padding: 0 50px;
+	
 }
+
 
 nav ul {
 	float: right;
@@ -31,27 +32,56 @@ nav ul {
 
 nav ul li{
 	display: inline-block;
-	line-height: 80px;
-	margin: 0 5px;
+	line-height: 40px;
+	position: relative;
+}
+
+.list {
+	margin: 20px 20px;
 }
 
 nav ul li a{
-	color: #fff;
-	font-size: 17px;
+	color: #2A4F7B;
+	font-size: 14px;
 	padding: 7px 13px;
 	border-radius: 3px;
 	text-transform: uppercase;
 }
 
-a:active, a:hover {
-	background: #000040;
+nav ul li a:active, nav ul li a:hover {
+	background: #2A4F7B;
+	color: #fff;
 	transition: .5s;
 	
 }
 
+nav ul ul{
+	position: absolute;
+	top: 40px;
+	display: none;		
+	background: #2A4F7B;
+	width: 200px;
+}
+
+nav ul ul li a{
+	color: #fff;
+	
+}
+
+nav ul li:hover > ul{
+	display: block;	
+	
+}
+
+nav ul ul li:hover, nav ul ul li a:hover {
+	background: #fff;
+	color: #2A4F7B;
+	margin-right: 20px;
+}
+
 .checkbtn{
 	font-size: 30px;
-	color: #fff;
+	color: #0000a0;
 	float: right;
 	line-height: 80px;
 	margin-right: 40px;
@@ -80,7 +110,7 @@ a:active, a:hover {
 		position: fixed;
 		width: 100%;
 		height: 100vh;
-		background: #000040;
+		background: #fff;
 		top: 80px;
 		left: -100%;
 		text-align: center;
@@ -96,10 +126,17 @@ a:active, a:hover {
 	}
 	a:active, a:hover {
 		background: none;
-		color: #0000a0;
+		color: #8080ff;
 	}
+	
 	#check:checked ~ ul{
 		left:0;
 	}
 	
+	
+	
+	
+	
+	
 }
+
