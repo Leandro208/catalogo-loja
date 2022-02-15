@@ -55,29 +55,7 @@ nav ul li a:active, nav ul li a:hover {
 	
 }
 
-nav ul ul{
-	position: absolute;
-	top: 40px;
-	display: none;		
-	background: #2A4F7B;
-	width: 200px;
-}
 
-nav ul ul li a{
-	color: #fff;
-	
-}
-
-nav ul li:hover > ul{
-	display: block;	
-	
-}
-
-nav ul ul li:hover, nav ul ul li a:hover {
-	background: #fff;
-	color: #2A4F7B;
-	margin-right: 20px;
-}
 
 .checkbtn{
 	font-size: 30px;
