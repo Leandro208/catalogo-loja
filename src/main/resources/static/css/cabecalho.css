@@ -112,25 +112,6 @@ nav ul li a:active, nav ul li a:hover {
 	}
 }
 
-.carrossel{
-	box-shadow: 2px 2px 4px black;
-	overflow: hidden;
-	height: 800px;
-	width: 800px;	
-	position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.container{
-	display: flex;
-	transition: transform 0.5s ease-in-out;
-	transform: translateX(0);	
-}
 
-.container img{
-	object-fit: cover;
-	height: 800px;
-	width: 800px;
-}
 
