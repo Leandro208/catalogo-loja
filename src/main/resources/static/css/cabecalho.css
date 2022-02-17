@@ -60,7 +60,7 @@ nav ul li a:active, nav ul li a:hover {
 
 .checkbtn{
 	font-size: 30px;
-	color: #0000a0;
+	color: #2A4F7B;
 	float: right;
 	line-height: 80px;
 	margin-right: 40px;
@@ -86,12 +86,13 @@ nav ul li a:active, nav ul li a:hover {
 		display: block;
 	}
 	ul{
+		z-index:4;
 		position: fixed;
 		width: 100%;
 		height: 100vh;
 		background: #fff;
 		top: 80px;
-		left: -100%;
+		left: -200%;
 		text-align: center;
 		transition: all .5s;
 	}
@@ -148,8 +149,8 @@ nav ul li a:active, nav ul li a:hover {
 		width: 65px;
 	}
 	100%{
-		height: 85px;
-		width: 85px;
+		height: 75px;
+		width: 75px;
 	}
 }
 
