@@ -48,5 +48,10 @@
 	display: flex;
 	justify-content: center;
 	grid-gap: 30px;
-	margin: 20px;
+	
+}
+
+.info img{
+	width: 15%;
+	float: left;
 }
