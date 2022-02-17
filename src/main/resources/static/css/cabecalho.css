@@ -88,13 +88,14 @@ nav ul li a:active, nav ul li a:hover {
 	ul{
 		z-index:4;
 		position: fixed;
-		width: 100%;
+		width: 80%;
 		height: 100vh;
 		background: #fff;
 		top: 80px;
-		left: -200%;
+		left: -100%;
 		text-align: center;
 		transition: all .5s;
+		
 	}
 	nav ul li{
 		display: block;
@@ -110,7 +111,7 @@ nav ul li a:active, nav ul li a:hover {
 	}
 	
 	#check:checked ~ ul{
-		left:0;
+		left:-50px;
 	}
 }
 
@@ -145,12 +146,12 @@ nav ul li a:active, nav ul li a:hover {
 
 @keyframes pulsar{
 	0%{
-		height: 65px;
-		width: 65px;
+		height: 55px;
+		width: 55px;
 	}
 	100%{
-		height: 75px;
-		width: 75px;
+		height: 65px;
+		width: 65px;
 	}
 }
 
