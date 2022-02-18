@@ -165,12 +165,9 @@ nav ul li a:active, nav ul li a:hover {
 /* css do rodape */
 
 footer{
-	color: #d9d9d9;
-	
+	color: #fff;
 	width: 100%;
-	background: #111;
-	
-	
+	background: #1c3451;
 }
 
 .main-content{
@@ -181,7 +178,7 @@ footer{
     padding: 10px 20px;
 }
 .box h2{
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -194,7 +191,7 @@ footer{
     content: '';
     width: 15%;
     height: 2px;
-    background: #f12020;
+    background: #2e547c;
     top: -10px;
 }
 .box .content:before{
@@ -202,7 +199,7 @@ footer{
     content: '';
     height: 2px;
     width: 100%;
-    background: #1a1a1a;
+    background: #9db6dc;
     top: -10px;
 }
 .left .content .social{
@@ -210,12 +207,12 @@ footer{
 }
 .left .content .social a{
     padding: 0 2px;
-    color: #d9d9d9;
+    color: #fff;
 }
 .left .content .social a span{
     width: 40px;
     height: 40px;
-    background: #1a1a1a;
+    background: #2A4F7B;
     text-align: center;
     line-height: 40px;
     border-radius: 5px;
@@ -223,27 +220,30 @@ footer{
     transition: 0.3s;
 }
 .left .content .social a span:hover{
-    background: #f12020;
+    background: #9db6dc;
 }
 .left .content p{
     text-align: justify;
+    font-size: 15px;
+    
 }
 .center .content .fas{
-    font-size: 23px;
-    background: #1a1a1a;
-    width: 45px;
-    height: 45px ;
+    font-size: 18px;
+    background: #2A4F7B;
+    width: 40px;
+    height: 40px ;
     line-height: 45px;
     text-align: center;
     border-radius: 50%;
     transition: 0.3s;
     cursor: pointer;
+    color: #fff;
 }
 .center .content .fas:hover{
-    background: #f12020;
+    background: #9db6dc;
 }
 .center .content .text{
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     padding-left: 10px;
 }
@@ -256,21 +256,21 @@ footer{
 .right form input, .right form textarea{
     width: 100%;
     font-size: 17px;
-    background: #151515;
+    background: #213e61;
     padding-left: 10px;
-    border: 1px solid #222222;
+    border: 1px solid #9db6dc;
 }
 .right form input{
     height: 35px;
 }
 .right form input:focus,
 .right form textarea:focus{
-    outline-color: #3498db;
+    outline-color: #5c7c9c;
 }
 .right form .text{
-    font-size: 17px;
+    font-size: 15px;
     margin-bottom: 2px;
-    color: #656565;
+    color: #fff;
 }
 .right form .btn-ctt{
     margin-top: 10px;
@@ -278,26 +278,27 @@ footer{
 .right form .btn-ctt button{
     height: 40px;
     width: 100%;
-    background: #f12020;
+    background: #fff;
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
     transition: .3s;
 }
 .right form .btn-ctt button:hover{
-    background: #000;
+    background: #1c3451;
+    color: #fff;
 }
 .bottom .center{
     padding: 5px;
     font-size: 15px;
-    background: #151515;
+    background: #182d45;
     text-align: center;
 }
 .bottom .center span{
-    color: #656565;
+    color: #fff;
 }
 .bottom .center a{
-    color: #f12020;
+    color: #5c7c9c;
     text-decoration: none;
 }
 .bottom .center a:hover{
