@@ -314,3 +314,28 @@ footer{
         margin: 5px 0;
     }
 }
+
+
+
+
+
+
+
+/* jjjjjj*/
+
+.btn-search{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #2A4F7B;
+	cursor: pointer;
+	border: 0;
+}
+
+.btn-search:hover{
+	background: #3869a5;
+}
+
+.btn-search i{
+	color: #fff;
+}
