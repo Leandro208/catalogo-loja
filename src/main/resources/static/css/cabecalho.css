@@ -16,9 +16,13 @@ body{
 /*FUNDO DO NAVBAR*/
 /*nav{
 	background: #fff;
-	height: 250px;
+	position: fixed;
 	width: 100%;
-}*/
+	height: 75px;
+	z-index: 10;
+}
+*/
+
 
 /* css do navbar */
 label.logo {
