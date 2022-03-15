@@ -10,7 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Inicio</title>
+	<title>Cadastrar Produto</title>
 	<link href="css/cabecalho.css" type="text/css" rel="stylesheet" />
 	<link href="css/cadastro.css" type="text/css" rel="stylesheet" />	
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -45,27 +45,54 @@
 	
 	
 	<div class="cadastro">
-		<form action="#" class="form" method="post">
+		<form action="#" class="form" method="get">
 			<h2>Cadastrar Produto</h2>
 			<div class="row flx">
-				<input type="text" class="input" name="campo" placeholder="Campo">
-				<input type="text" class="input" name="campo" placeholder="Campo">
+				<input type="text" class="input" name="titulo" placeholder="Titulo*" required>
+				<input type="text" class="input" name="fabricante" placeholder="Fabricante*" required>
 			</div>
 			<div class="row">
-				<input type="text" class="input" name="campo" placeholder="Campo">
+				<select class="select">
+					<option selected disabled class="option">--Categoria--</option>
+					<option class="option">op 2</option>
+					<option>op 3</option>
+				</select>
 			</div>
 			<div class="row">
-				<input type="text" class="input" name="campo" placeholder="Campo">
+				<input type="text" class="input" name="precoC" id="conv" placeholder="Preço de venda*" onkeyup="formatarNumero()">
 			</div>
 			<div class="row">
-				<textarea class="textarea" name="texto" placeholder="campo"></textarea>
+				<input type="number" class="input" name="precoV" id="conv2" placeholder="Preço de custo*">
+			</div>
+			
+			
+			<div class="row">
+				<input type="file" name="file" class="input" id="file" 
+				accept="image/*" onchange="previewImage();">
+				
+				<div class="img_preview">
+					<img id="preview" src="img/img.png">
+				</div>
+				
+			</div>
+			
+			
+			
+			<div class="row">
+				<textarea class="textarea" name="descricao" placeholder="Descrição*" required></textarea>
 			</div>
 			<div class="row">
-				<input type="submit" class="btn" name="campo" placeholder="Enviar">
+				<input type="submit" class="btn" name="campo" value="Cadastrar">
 			</div>
 		</form>
 	</div>
 	
+	
+	<div class="opcoes">
+		<a href="#"><button>Cadastrar categoria</button></a>
+		<a href="#"><button>Cadastrar Fabricante</button></a>
+		
+	</div>
 	
 	<!-- rodape -->
 	<footer>
@@ -134,7 +161,9 @@
 			</div>
 		</div>
 	</footer>
-	
-	
+
+
+
+	<script src="js/cadastro.js"></script>
 </body>
 </html>

@@ -122,6 +122,12 @@ nav ul li a:active, nav ul li a:hover {
 	}
 }
 
+@media (max-width: 314px){
+	label.logo{
+		font-size: 5px;
+		padding-left: 10px;
+	}
+}
 
 /* css do btn whatsapp */
 .btn-whatsapp{

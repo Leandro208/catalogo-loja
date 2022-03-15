@@ -3,7 +3,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: 100vh;
+	height: 110vh;
 	
 }
 
@@ -11,15 +11,14 @@
 	display: block;
 	padding: 20px;
 	background-color: #fff;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
-	margin-top: -100px;
+	
 }
 
 .form h2{
 	color: #585858;
 	font-weight: 600;
-	padding: 8px;
+	
 }
 
 .form .row{
@@ -47,13 +46,42 @@
 	padding: 8px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	font-size: 1.2em;
+	font-size: 1em;
 	color: #333;
 }
 
 .form .input:focus{
-	outline-color: red;
+	outline-color: #3d69ab;
 }
+
+.form .select{
+	height: 42px;
+	padding: 10px 15px;
+	line-height: 22px;
+	font-size: 1em;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	
+	
+}
+
+.form .select:focus{
+	outline-color: #cccccc;
+}
+
+.img_preview{
+	border: 1px solid #ccc;
+	width: 100px;
+	max-width: 100px;
+	background-image: url("img/img.png");
+	margin-top: 5px;
+}
+.img_preview img{
+	width: 100px;
+	max-width: 100px;
+}
+
+
 .form .textarea{
 	display: block;
 	width: 100%;
@@ -61,12 +89,13 @@
 	padding: 8px;
 	border: 1px solid #cccccc;
 	border-radius: 5px;
-	font-size: 1.2em;
+	font-size: 1em;
 	resize: none;
+	font-family: sans-serif;
 }
 
 .form .textarea:focus{
-	outline-color: red;
+	outline-color: #3d69ab;
 }
 .form .btn{
 	display: block;
@@ -86,13 +115,42 @@
 }
 
 @media (max-width: 540px) {
-	.form {
-		display: block;
+	.cadastro{
+		display: inline;
 		width: 100%;
-		margin: 0px 20px;
 	}
+	.form {
+		width: 100%;
+		margin: 0px 10px;
+	}
+	.opcoes{
+		width: 100%;
+	}
+	
 }
 
+.opcoes{
+	display: flex;
+	justify-content: center;
+	grid-gap: 30px;
+	margin-bottom: 10px;
+	border-top: 1px solid #ccc;
+	padding-top: 10px;
+	
+	
+}
+
+.opcoes button{
+	padding: 8px;
+	background-color: #203c5e;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	transition-duration: 0.3s;
+	cursor: pointer;
+}
 @media (max-width: 450px) {
 	.form .flx{
 		display: block;
@@ -102,6 +160,7 @@
 	}
 	
 	.form .input,
+	.form .select,
 	.form .textarea,
 	.form .btn {
 		font-size: 1em;
