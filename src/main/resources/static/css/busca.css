@@ -1,0 +1,26 @@
+.corpoBusca{
+	margin-left: 30px;
+}
+
+.campo_text{
+	margin-bottom: 20px;
+}
+
+.nomeProduto{
+	    display: flex;
+}
+
+.barra{
+	background: #2A4F7B;
+	width: 5px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.nomeProduto h2{
+	float: left;
+	
+	font-size: 20px;
+	font-weight: 600;
+	color: #414141;
+}

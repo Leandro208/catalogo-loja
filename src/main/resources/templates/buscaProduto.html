@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+<link rel="icon" type="imagem/png" href="img/logoAba.png" />
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Buscar</title>
+<link href="css/cabecalho.css" type="text/css" rel="stylesheet" />
+<link href="css/busca.css" type="text/css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/0c25c3c076.js"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<nav>
+		<input type="checkbox" id="check"> <label for="check"
+			class="checkbtn"> <i class="fas fa-bars"></i>
+		</label> <label class="logo"><img src="img/logoNav.png"></label>
+		<ul class="list">
+			<li><a href="/">Inicio</a></li>
+			<li><a href="cadastrar">Cadastrar produto</a></li>
+			<li><a href="#">Sobre</a></li>
+
+		</ul>
+
+	</nav>
+
+	<!-- botao whatsapp -->
+	<button class="btn-whatsapp">
+		<a
+			href="https://api.whatsapp.com/send?phone=5584987088658&text=Ol%C3%A1"
+			target="_blank"> <i class="fa fa-whatsapp"></i>
+		</a>
+	</button>
+
+
+	<div class="corpoBusca">
+		<form action="#"  method="get">
+			
+			<div class="campo_text">
+				<input type="text" name="campo" placeholder="Digite o que você procura">
+				<input type="submit">
+			</div>
+			
+			<div class="nomeProduto">
+				<div class="barra"></div>
+				<h2>
+					Buscando por: <span>Nome</span>
+				</h2>
+			</div>
+
+		</form>
+	</div>
+
+	<!-- rodape -->
+	<footer>
+		<div class="main-content">
+			<div class="left box">
+				<h2>Atendimento</h2>
+				<div class="content">
+					<p>
+						<br> • Segunda a Sabádo das 08:00 às 19:30hs<br> • e aos
+						Domingos das 07:30 às 12:30hs
+					</p>
+
+					<div class="social">
+						<a href="https://www.instagram.com/rlj.importados/"><span
+							class="fab fa-instagram"></span></a> <a href="#"><span
+							class="fab fa-whatsapp"></span></a>
+					</div>
+
+					<br>
+					<h2>Formas de Pagamento</h2>
+					<img alt="" style="width: 200px;" src="img/cart.png">
+
+				</div>
+			</div>
+			<div class="center box">
+				<h2>Endereço</h2>
+				<div class="content">
+					<div class="place">
+						<span class="fas fa-map-marker"></span> <span class="text">Av.
+							Manoel rodrigues, 1002 - Poço Branco/RN</span>
+					</div>
+
+					<div class="phone">
+						<span class="fas fas fa-phone-alt"></span> <span class="text">(84)
+							98708-8658</span>
+					</div>
+
+					<div class="email">
+						<span class="fas fa-envelope"></span> <span class="text">Leandro.barbosa208@outlook.com</span>
+					</div>
+				</div>
+			</div>
+			<div class="right box">
+				<h2>Contato</h2>
+				<div class="content">
+					<form action="#">
+						<div class="email">
+							<div class="text">Email *</div>
+							<input type="email" required>
+						</div>
+						<div class="msg">
+							<div class="text">Mensagem *</div>
+							<textarea rows="2" cols="25" required></textarea>
+						</div>
+						<div class="btn-ctt">
+							<button type="submit">Enviar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="center">
+				<span class="credit">Criado por <a
+					href="https://github.com/Leandro208">Leandro Barbosa</a></span> <span
+					class="far fa-copyright"> 2022 Todos os direitos reservados</span>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

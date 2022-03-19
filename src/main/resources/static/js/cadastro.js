@@ -22,6 +22,7 @@ function previewImage() {
 				
 				if(event.keyCode == 8){
 				var tamanho = inp.toString().lenght;
+				//usar o char at para apagar
 				alert(tamanho)
 				}
 				
