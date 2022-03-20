@@ -9,6 +9,34 @@
 .nomeProduto{
 	    display: flex;
 }
+.campo_text .input{
+	border: 1px solid #ccc;
+	width: 250px;
+	height: 35px;
+	font-size: 13px;
+	border-radius: 5px;
+	color: #333;
+	padding: 8px;
+}	
+
+.campo_text .input:focus{
+	outline-color: #3d69ab;
+}
+
+.campo_text .btn{
+	padding: 8px;
+	background-color: #2A4F7B;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 400;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+	transition-duration: 0.3s;
+}
+.campo_text .btn:hover {
+	background-color: #3d69ab;
+}
 
 .barra{
 	background: #2A4F7B;
@@ -19,8 +47,9 @@
 
 .nomeProduto h2{
 	float: left;
-	
 	font-size: 20px;
 	font-weight: 600;
 	color: #414141;
 }
+
+

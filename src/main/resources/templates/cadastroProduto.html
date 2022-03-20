@@ -5,14 +5,14 @@
 
 <head>
 	
-	<link rel="icon" type="imagem/png" href= "img/logoAba.png" />	
+	<link rel="icon" type="/imagem/png" href= "img/logoAba.png" />	
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>Cadastrar Produto</title>
-	<link href="css/cabecalho.css" type="text/css" rel="stylesheet" />
-	<link href="css/cadastro.css" type="text/css" rel="stylesheet" />	
+	<link href="/css/cabecalho.css" type="text/css" rel="stylesheet" />
+	<link href="/css/cadastro.css" type="text/css" rel="stylesheet" />	
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/0c25c3c076.js" crossorigin="anonymous"></script>
 	
@@ -24,7 +24,7 @@
 		<label for="check" class="checkbtn">
 			<i class="fas fa-bars"></i>
 		</label>
-		<label class = "logo"><img src="img/logoNav.png"></label>
+		<label class = "logo"><img src="/img/logoNav.png"></label>
 		<ul class = "list">
 			<li><a href="/">Inicio</a></li>
 			<li><a href="cadastrar">Cadastrar produto</a></li>
@@ -49,44 +49,49 @@
 	
 	
 	<div class="cadastro">
-		<form action="#" class="form" method="get">
+		<form th:action="@{/produtos/salvar}" th:object="${produto}"
+				 class="form" method="post">
+				 
 			<h2>Cadastrar Produto</h2>
 			<div class="row flx">
-				<input type="text" class="input" name="titulo" placeholder="Titulo*" required>
-				<input type="text" class="input" name="fabricante" placeholder="Fabricante*" required>
+				<input type="text" th:field="${produto.titulo}" class="input" name="titulo" placeholder="Titulo*" required>
+				<input type="text" th:field="${produto.fabricante}" class="input" name="fabricante" placeholder="Fabricante*" required>
 			</div>
-			<div class="row">
-				<select class="select">
-					<option selected disabled class="option">--Categoria--</option>
-					<option class="option">op 2</option>
-					<option>op 3</option>
+			 <div class="row">
+				<select class="select" th:field="${produto.categoria}">
+					<option value="">--Categoria--</option>
+					<option th:each="c : ${categorias}" 
+						th:text="${c}" th:value="${c}"></option>
+					
 				</select>
+			</div> 
+			<div class="row">
+				<input type="text" th:field="${produto.precoVenda}" class="input" name="precoV" id="conv" placeholder="Preço de venda*" onkeyup="formatarNumero()">
 			</div>
 			<div class="row">
-				<input type="text" class="input" name="precoC" id="conv" placeholder="Preço de venda*" onkeyup="formatarNumero()">
-			</div>
-			<div class="row">
-				<input type="number" class="input" name="precoV" id="conv2" placeholder="Preço de custo*">
+				<input type="text" th:field="${produto.precoCusto}" class="input" name="precoC" id="conv2" placeholder="Preço de custo*">
 			</div>
 			
 			
-			<div class="row">
+			<!--  <div class="row">
 				<input type="file" name="file" class="input" id="file" 
-				accept="image/*" onchange="previewImage();">
+				accept="/image/*" onchange="previewImage();">
 				
 				<div class="img_preview">
-					<img id="preview" src="img/img.png">
+					<img id="preview" src="/img/img.png">
 				</div>
 				
-			</div>
+			</div>-->
 			
 			
 			
 			<div class="row">
-				<textarea class="textarea" name="descricao" placeholder="Descrição*" required></textarea>
+				<textarea class="textarea" th:field="${produto.desc}" name="descricao" placeholder="Descrição*" required></textarea>
 			</div>
-			<div class="row">
-				<input type="submit" class="btn" name="campo" value="Cadastrar">
+			<div class="row flx">
+				<input type="submit" class="btn" name="btn" value="Cadastrar">
+				<input type="submit" class="btn" name="btn" value="Cancelar"
+					formaction="/" formmethod="get">
 			</div>
 		</form>
 	</div>
@@ -115,7 +120,7 @@
 				
 				<br>
 				<h2>Formas de Pagamento</h2>
-				<img alt="" style="width: 200px;" src="img/cart.png"> 
+				<img alt="" style="width: 200px;" src="/img/cart.png"> 
 				
 				</div>
 				
@@ -168,6 +173,6 @@
 
 
 
-	<script src="js/cadastro.js"></script>
+	<script src="/js/cadastro.js"></script>
 </body>
 </html>
