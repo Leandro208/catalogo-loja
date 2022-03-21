@@ -5,32 +5,38 @@
 
 <head>
 
-<link rel="icon" type="imagem/png" href="img/logoAba.png" />
+<link rel="icon" type="imagem/png" href="/img/logoAba.png" />
 
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <title>Buscar</title>
-<link href="css/cabecalho.css" type="text/css" rel="stylesheet" />
-<link href="css/busca.css" type="text/css" rel="stylesheet" />
-<link href="css/card.css" type="text/css" rel="stylesheet" />
+<link href="/css/cabecalho.css" type="text/css" rel="stylesheet" />
+<link href="/css/busca.css" type="text/css" rel="stylesheet" />
+<link href="/css/card.css" type="text/css" rel="stylesheet" />
 <script src="https://kit.fontawesome.com/0c25c3c076.js"
 	crossorigin="anonymous"></script>
 </head>
 <body>
 
 	<nav>
-		<input type="checkbox" id="check"> <label for="check"
-			class="checkbtn"> <i class="fas fa-bars"></i>
-		</label> <label class="logo"><img src="img/logoNav.png"></label>
-		<ul class="list">
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class = "logo"><img src="/img/logoNav.png"></label>
+		<ul class = "list">
 			<li><a href="/">Inicio</a></li>
-			<li><a href="cadastrar">Cadastrar produto</a></li>
+			<li><a href="/produtos/cadastrar">Cadastrar produto</a></li>
 			<li><a href="#">Sobre</a></li>
-
+			<li>
+			<a href="/produtos/buscar" style="background: none"><button class="btn-search" >
+				<i class="fa fa-search"></i>
+			</button></a>
+			</li>
 		</ul>
-
+		
 	</nav>
 
 	<!-- botao whatsapp -->
@@ -43,29 +49,67 @@
 
 
 	<div class="corpoBusca">
-		<form action="#"  method="get">
+		<form th:action="@{/produtos/mostrar}" method="get">
 			
 			<div class="campo_text">
-				<input type="text" name="campo" class="input" placeholder="Digite o que você procura" required>
-				<input class="btn" type="submit">
+				<input type="text" th:name="nome" class="input" placeholder="Digite o que você procura">
+				<input class="btn" type="submit" value="Buscar">
+				
+				<div class="check">
+					<input type="checkbox" th:name="mostrarTodosDados" th:value="true">
+					<label>Mostrar todos os dados</label>
+				</div>
 			</div>
+			
+			
 			
 			<div class="nomeProduto">
 				<div class="barra"></div>
 				<h2>
-					Buscando por: <span>Nome</span>
+					Buscando por: <span th:text="${nomeBuscado}"></span>
 				</h2>
 			</div>
 
 		</form>
 		
-		<!-- Produtos -->
+		<div th:if="${produtosEncontros} != null">
+			<table>
+				<tr>
+					<th>titulo</th>
+					<th>Fabricante</th>
+					<th>Categoria</th>
+					<th>Preço venda</th>
+					<th th:if="${mostrarTodosDados} == true">Preço custo</th>
+					<th th:if="${mostrarTodosDados} == true">Descrição</th>
+					<th>Opções</th>
+				</tr>
+			
+					<tr th:each="p : ${produtosEncontros}">
+						<td th:text="${p.titulo}"></td>
+						<td th:text="${p.fabricante}"></td>
+						<td th:text="${p.categoria}"></td>
+						<td th:text="${p.precoVenda}"></td>
+						<td th:if="${mostrarTodosDados} == true"
+							th:text="${p.precoCusto}"></td>
+						<td th:if="${mostrarTodosDados} == true"
+							><p th:text="${p.desc}"></p></td>
+							
+						<td>Editar Remover</td>
+						
+						
+					</tr>
+				
+				
+			</table>
+		</div>
+		
+		<!-- EXIBIÇÃO 2 Produtos 
 		
 		<div class="conteudo_ofertas">
 			<div class="box_product">
 			
 				<div class="image">
-					<img alt="" src="img/fone.png">
+					<img alt="" src="/img/fone.png">
 				</div>
 				
 				<div class="legend">
@@ -73,12 +117,12 @@
 					<div class="subLegend">
 						<div class="preco">R$ 1.000,00 <span>A vista</span></div>
 					 <div class="stars">
-							<img alt="" src="img/cart.png"> 
+							<img alt="" src="/img/cart.png"> 
 						</div> 
 					</div>
 				</div>
 				<div class="overlay">
-					<a href="#" style="--i:1;"><img alt="" src="img/logoNav.png"></a>
+					<a href="#" style="--i:1;"><img alt="" src="/img/logoNav.png"></a>
 				</div>
 			</div>
 			
@@ -86,7 +130,7 @@
 			<div class="box_product">
 			
 				<div class="image">
-					<img alt="" src="img/fone.png">
+					<img alt="" src="/img/fone.png">
 				</div>
 				
 				<div class="legend">
@@ -108,90 +152,8 @@
 					<a href="#" style="--i:3;" class="fas fa-search"></a>
 				</div>
 			</div>
-			
-			
-			<div class="box_product">
-			
-				<div class="image">
-					<img alt="" src="img/fone.png">
-				</div>
-				
-				<div class="legend">
-					<h3 class="title">Fone</h3>
-					<div class="subLegend">
-						<div class="preco">R$ 1000 <span>R$1200</span></div>
-						<div class="stars">
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star-half"></i> 
-						</div>
-					</div>
-				</div>
-				<div class="overlay">
-					<a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-					<a href="#" style="--i:2;" class="fas fa-heart"></a>
-					<a href="#" style="--i:3;" class="fas fa-search"></a>
-				</div>
-			</div>
-			
-			
-			<div class="box_product">
-			
-				<div class="image">
-					<img alt="" src="img/fone.png">
-				</div>
-				
-				<div class="legend">
-					<h3 class="title">Guitarra</h3>
-					<div class="subLegend">
-						<div class="preco">R$ 1000 <span>R$1200</span></div>
-						<div class="stars">
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star-half"></i> 
-						</div>
-					</div>
-				</div>
-				<div class="overlay">
-					<a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-					<a href="#" style="--i:2;" class="fas fa-heart"></a>
-					<a href="#" style="--i:3;" class="fas fa-search"></a>
-				</div>
-			</div>
-			
-			<div class="box_product">
-			
-				<div class="image">
-					<img alt="" src="img/fone.png">
-				</div>
-				
-				<div class="legend">
-					<h3 class="title">Guitarra</h3>
-					<div class="subLegend">
-						<div class="preco">R$ 1000 <span>R$1200</span></div>
-						<div class="stars">
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star-half"></i> 
-						</div>
-					</div>
-				</div>
-				<div class="overlay">
-					<a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-					<a href="#" style="--i:2;" class="fas fa-heart"></a>
-					<a href="#" style="--i:3;" class="fas fa-search"></a>
-				</div>
-			</div>
-			
-			
-			
-		</div>
+		</div> 
+		-->
 	</div>
 
 
@@ -222,7 +184,7 @@
 
 					<br>
 					<h2>Formas de Pagamento</h2>
-					<img alt="" style="width: 200px;" src="img/cart.png">
+					<img alt="" style="width: 200px;" src="/img/cart.png">
 
 				</div>
 			</div>

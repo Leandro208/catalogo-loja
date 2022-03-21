@@ -38,6 +38,18 @@
 	background-color: #3d69ab;
 }
 
+.campo_text .check{
+	margin-top: 8px;
+}
+.campo_text .check input{
+	 width: 12px;
+     height: 12px;
+}
+
+.campo_text .check label{
+	font-size: 13px;
+}
+
 .barra{
 	background: #2A4F7B;
 	width: 5px;
