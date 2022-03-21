@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.catalogoweb.CatalogoLoja.dominio.Produto;
 
@@ -34,7 +35,7 @@ public class CadastroProduto {
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping("/salvar")
-	public String salvar (Produto produto, HttpSession sessao) {
+	public String salvar (Produto produto, RedirectAttributes attr, HttpSession sessao) {
 		
 		//pegando valores da sessao
 		
@@ -55,7 +56,9 @@ public class CadastroProduto {
 		sessao.setAttribute("id", id);
 		sessao.setAttribute("produtosCadastrados", produtosCadastrados);
 		
-		return "cadastroProduto";
+		attr.addFlashAttribute("msgSucesso", "Cadastro realizado com sucesso!");
+		
+		return "redirect:/produtos/cadastrar";
 		
 	}
 }

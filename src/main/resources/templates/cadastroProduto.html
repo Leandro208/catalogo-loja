@@ -5,7 +5,7 @@
 
 <head>
 	
-	<link rel="icon" type="/imagem/png" href= "img/logoAba.png" />	
+	<link rel="icon" type="imagem/png" href= "/img/logoAba.png" />	
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport"
@@ -53,6 +53,9 @@
 				 class="form" method="post">
 				 
 			<h2>Cadastrar Produto</h2>
+			
+			
+			
 			<div class="row flx">
 				<input type="text" th:field="${produto.titulo}" class="input" name="titulo" placeholder="Titulo*" required>
 				<input type="text" th:field="${produto.fabricante}" class="input" name="fabricante" placeholder="Fabricante*" required>
@@ -88,6 +91,17 @@
 			<div class="row">
 				<textarea class="textarea" th:field="${produto.desc}" name="descricao" placeholder="Descrição*" required></textarea>
 			</div>
+			
+			<div th:if="${msgSucesso} != null">
+				<b th:text="${msgSucesso}" style="color: #2A4F7B; float: right;"></b>
+				<br>
+			</div>
+			
+			<div th:if="${msgErro} != null">
+				<b th:text="${msgErro}" style="color: Red; float: right;"></b>
+				<br><br>
+			</div>
+			
 			<div class="row flx">
 				<input type="submit" class="btn" name="btn" value="Cadastrar">
 				<input type="submit" class="btn" name="btn" value="Cancelar"
