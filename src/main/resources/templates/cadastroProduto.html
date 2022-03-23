@@ -52,6 +52,8 @@
 		<form th:action="@{/produtos/salvar}" th:object="${produto}"
 				 class="form" method="post">
 				 
+			<input type="hidden" th:field="${produto.id}">	 
+				 
 			<h2>Cadastrar Produto</h2>
 			
 			
@@ -72,7 +74,7 @@
 				<input type="text" th:field="${produto.precoVenda}" class="input" name="precoV" id="conv" placeholder="Preço de venda*" onkeyup="formatarNumero()">
 			</div>
 			<div class="row">
-				<input type="text" th:field="${produto.precoCusto}" class="input" name="precoC" id="conv2" placeholder="Preço de custo*">
+				<input type="text" th:field="${produto.precoCusto}" class="input" name="precoC" id="conv2" placeholder="Preço de custo*" onkeyup="formatarNumero2()">
 			</div>
 			
 			
@@ -103,7 +105,8 @@
 			</div>
 			
 			<div class="row flx">
-				<input type="submit" class="btn" name="btn" value="Cadastrar">
+				<input type="submit" class="btn" name="btn" 
+				th:value="${produto.id} == 0 ? Cadastrar : Editar">
 				<input type="submit" class="btn" name="btn" value="Cancelar"
 					formaction="/" formmethod="get">
 			</div>

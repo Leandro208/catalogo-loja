@@ -72,7 +72,7 @@
 
 		</form>
 		
-		<div th:if="${produtosEncontros} != null">
+		<div th:if="${produtosEncontrados} != null">
 			<table>
 				<tr>
 					<th>titulo</th>
@@ -84,7 +84,7 @@
 					<th>Opções</th>
 				</tr>
 			
-					<tr th:each="p : ${produtosEncontros}">
+					<tr th:each="p : ${produtosEncontrados}">
 						<td th:text="${p.titulo}"></td>
 						<td th:text="${p.fabricante}"></td>
 						<td th:text="${p.categoria}"></td>
@@ -94,7 +94,13 @@
 						<td th:if="${mostrarTodosDados} == true"
 							><p th:text="${p.desc}"></p></td>
 							
-						<td>Editar Remover</td>
+						<td>
+						
+						<a th:href="'/produtos/editar/' + ${p.id}">Editar</a>
+						
+						Remover
+						
+						</td>
 						
 						
 					</tr>
@@ -164,7 +170,22 @@
 
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 	<!-- rodape -->
 	<footer>
 		<div class="main-content">

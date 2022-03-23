@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -56,7 +57,7 @@ public class BuscaProduto {
 			}
 		}
 		
-		model.addAttribute("produtosEncontros", produtosEncontrados);
+		model.addAttribute("produtosEncontrados", produtosEncontrados);
 		if(mostrarTodosDados != null) {
 			model.addAttribute("mostrarTodosDados", true);
 		}
@@ -65,4 +66,6 @@ public class BuscaProduto {
 		
 		return "buscaProduto";
 	}
+	
+	
 }

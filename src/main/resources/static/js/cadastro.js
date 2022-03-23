@@ -29,3 +29,20 @@ function previewImage() {
 				var x = inp.replace(',00', '');
 				num.value = x + ',00';
 		}
+		
+		function formatarNumero2(){
+			
+			
+			var num = document.getElementById('conv2');
+			var inp = num.value;
+				
+				
+				if(event.keyCode == 8){
+				var tamanho = inp.toString().lenght;
+				//usar o char at para apagar
+				alert(tamanho)
+				}
+				
+				var x = inp.replace(',00', '');
+				num.value = x + ',00';
+		}

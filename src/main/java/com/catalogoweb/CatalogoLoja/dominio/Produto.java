@@ -1,5 +1,7 @@
 package com.catalogoweb.CatalogoLoja.dominio;
 
+import java.util.Objects;
+
 public class Produto {
 
 	private int id;
@@ -15,6 +17,25 @@ public class Produto {
 	private String precoCusto;
 	
 	private String desc;
+	
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		return id == other.id;
+	}
 
 	public int getId() {
 		return id;
