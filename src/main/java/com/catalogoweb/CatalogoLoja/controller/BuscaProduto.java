@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.catalogoweb.CatalogoLoja.dominio.Produto;
 
@@ -67,5 +68,27 @@ public class BuscaProduto {
 		return "buscaProduto";
 	}
 	
+	@SuppressWarnings("unchecked")
+	@GetMapping("/remove/{id}")
+	public String remove(@PathVariable("id") Integer idProduto,
+							HttpSession sessao,
+							RedirectAttributes attr) {
+		
+		List<Produto> produtosCadastrados = (List<Produto>) sessao.getAttribute("produtosCadastrados");
+		
+		Produto produt = new Produto();
+		
+		produt.setId(idProduto);
+		
+		boolean removido = produtosCadastrados.remove(produt);
+		
+		if(removido) {
+			attr.addFlashAttribute("msgSucesso", "Usuario removido com sucesso!");
+		} else {
+			attr.addFlashAttribute("msgErro", "Não foi possivel remover!");
+		}
+		
+		return "redirect:/produtos/mostrar";
+	}
 	
 }

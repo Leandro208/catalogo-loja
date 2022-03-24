@@ -31,9 +31,6 @@
 			<li><a href="/produtos/cadastrar">Cadastrar produto</a></li>
 			<li><a href="#">Sobre</a></li>
 			<li>
-			<a href="/produtos/buscar" style="background: none"><button class="btn-search" >
-				<i class="fa fa-search"></i>
-			</button></a>
 			</li>
 		</ul>
 		
@@ -50,6 +47,16 @@
 
 	<div class="corpoBusca">
 		<form th:action="@{/produtos/mostrar}" method="get">
+		
+		<div th:if="${msgSucesso} != null">
+				<b th:text="${msgSucesso}" style="color: #2A4F7B;"></b>
+				<br>
+			</div>
+			
+			<div th:if="${msgErro} != null">
+				<b th:text="${msgErro}" style="color: Red;"></b>
+				<br><br>
+			</div>
 			
 			<div class="campo_text">
 				<input type="text" th:name="nome" class="input" placeholder="Digite o que você procura">
@@ -98,7 +105,8 @@
 						
 						<a th:href="'/produtos/editar/' + ${p.id}">Editar</a>
 						
-						Remover
+						<a th:href="'/produtos/remove/' + ${p.id}"
+							onClick="if (!confirm('Deseja realmente remover o produto?')) return false;">Remover</a>
 						
 						</td>
 						

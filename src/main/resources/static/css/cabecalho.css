@@ -334,20 +334,31 @@ footer{
 
 /* jjjjjj*/
 
-.btn-search{
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background: #2A4F7B;
-	cursor: pointer;
-	border: 0;
+.list .input{
+	border: 1px solid #ccc;
+	width: 250px;
+	height: 35px;
+	font-size: 13px;
+	border-radius: 5px;
+	color: #333;
+	padding: 8px;
+}	
+
+.list .input:focus{
+	outline-color: #3d69ab;
 }
 
-.btn-search:hover{
-	background: #3869a5;
-}
-
-.btn-search i{
+.list .btn{
+	padding: 8px;
+	background-color: #2A4F7B;
 	color: #fff;
+	font-size: 13px;
+	font-weight: 400;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+	transition-duration: 0.3s;
 }
-
+.list .btn:hover {
+	background-color: #3d69ab;
+}

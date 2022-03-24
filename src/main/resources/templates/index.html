@@ -32,10 +32,12 @@
 			<li><a href="/produtos/cadastrar">Cadastrar produto</a></li>
 			<li><a href="#">Sobre</a></li>
 			<li>
-			<input type="text">
-			<a href="/produtos/buscar" style="background: none"><button class="btn-search" >
-				<i class="fa fa-search"></i>
-			</button></a>
+			<form th:action="@{/produtos/mostrar}" method="get">
+			
+				<input type="text" th:name="nome" class="input" placeholder="Digite o que você procura">
+				<input class="btn" type="submit" value="Buscar">
+				
+			</form>
 			</li>
 		</ul>
 		
