@@ -2,21 +2,38 @@ package com.catalogoweb.CatalogoLoja.dominio;
 
 import java.util.Objects;
 
-public class Produto {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "tb_produtos")
+public class Produto {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(nullable = false)
 	private String titulo;
 	
+	@Column(nullable = false)
 	private String fabricante;
 	
+	@Column(nullable = false)
 	private String categoria;
 	
+	@Column(nullable = false)
 	private String precoVenda;
 	
+	@Column(nullable = false)
 	private String precoCusto;
 	
-	private String desc;
+	@Column(nullable = false)
+	private String descricao;
 	
 	
 	
@@ -85,13 +102,15 @@ public class Produto {
 		this.precoCusto = precoCusto;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
+
+	
 	
 	
 }

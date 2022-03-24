@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.catalogoweb.CatalogoLoja.dominio.Produto;
+import com.catalogoweb.CatalogoLoja.repository.ProdutoRepository;
 
 @Controller
 @RequestMapping("/produtos")
 public class BuscaProduto {
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
 
 	@GetMapping("/buscar")
 	public String entrarBusca() {
@@ -34,29 +39,9 @@ public class BuscaProduto {
 			ModelMap model
 			) {
 		
-		//Captura a lista com todos os usuarios cadastrados em memoria
 		
-		List<Produto> produtosCadastrados = (List<Produto>) sessao.getAttribute("produtosCadastrados");
 		
-		List<Produto> produtosEncontrados = new ArrayList<>();
-		
-		if(nome == null || nome.isEmpty()) {
-			//se nao estiver digitado nada na busca sera exibido tudo
-			produtosEncontrados = produtosCadastrados;
-		} else {
-			// se tiver buscado algo
-			
-			//se tiver produtos cadastrado
-			if(produtosCadastrados != null) {
-				
-				//Pegando pelo valor digitado
-				
-				produtosEncontrados = produtosCadastrados.stream().filter(
-						p -> p.getTitulo().toLowerCase().contains(
-								nome.toLowerCase())).collect(Collectors.toList());
-				
-			}
-		}
+		List<Produto> produtosEncontrados = produtoRepository.findByTitulo(nome);
 		
 		model.addAttribute("produtosEncontrados", produtosEncontrados);
 		if(mostrarTodosDados != null) {

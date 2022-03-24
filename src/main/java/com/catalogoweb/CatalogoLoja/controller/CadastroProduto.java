@@ -2,12 +2,13 @@ package com.catalogoweb.CatalogoLoja.controller;
 
 
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.catalogoweb.CatalogoLoja.dominio.Produto;
+import com.catalogoweb.CatalogoLoja.repository.ProdutoRepository;
 
 @Controller
 @RequestMapping("/produtos")
 public class CadastroProduto {
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
 
 	@GetMapping("/cadastrar")
 	public String entrarCadastro(ModelMap model) {
@@ -34,40 +39,15 @@ public class CadastroProduto {
 		return Arrays.asList("Celular", "fones", "Cabos", "Carregador", "caixa de som");
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	@PostMapping("/salvar")
 	public String salvar (Produto produto, RedirectAttributes attr, HttpSession sessao) {
 		
-		//pegando valores da sessao
+		//cadastro e edição
+		produtoRepository.save(produto);
 		
-		Integer id = (Integer) sessao.getAttribute("id");
-		List<Produto> produtosCadastrados = 
-				(List<Produto>) sessao.getAttribute("produtosCadastrados");
-		if(id == null) {
-			id = 1;
-		}
-		if(produtosCadastrados == null) {
-			produtosCadastrados = new ArrayList<>();
-		}
+		attr.addFlashAttribute("msgSucesso", "Operação realizada com sucesso!");
 		
-		//Verificando se é cadastro
-		if(produto.getId() == 0) {
-			
-			produto.setId(id);
-			produtosCadastrados.add(produto);
-			
-			id++;
-			sessao.setAttribute("id", id);
-			sessao.setAttribute("produtosCadastrados", produtosCadastrados);
-			
-			attr.addFlashAttribute("msgSucesso", "Cadastro realizado com sucesso!");
-		}
-		
-		else {
-			produtosCadastrados.remove(produto);
-			produtosCadastrados.add(produto);
-			attr.addFlashAttribute("msgSucesso", "Produto editado com sucesso!");
-		}
 		return "redirect:/produtos/cadastrar";
 		
 	}
