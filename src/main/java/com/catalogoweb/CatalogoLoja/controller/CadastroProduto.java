@@ -52,7 +52,7 @@ public class CadastroProduto {
 		
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	@GetMapping("/editar/{id}")
 	public String edicao(
 			@PathVariable("id") Integer idProduto,
@@ -60,14 +60,8 @@ public class CadastroProduto {
 			HttpSession sessao
 			) {
 		
-		List<Produto> produtosCadastrados = (List<Produto>) sessao.getAttribute("produtosCadastrados");
+		Produto produto = produtoRepository.findById(idProduto).get();
 		
-		Produto produto = new Produto();
-		
-		produto.setId(idProduto);
-		
-		int posicao = produtosCadastrados.indexOf(produto);
-		produto = produtosCadastrados.get(posicao);
 		
 		model.addAttribute("produto", produto);
 		

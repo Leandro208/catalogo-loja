@@ -79,7 +79,7 @@
 
 		</form>
 		
-		<div th:if="${produtosEncontrados} != null">
+		<div th:if="${not #lists.isEmpty(produtosEncontrados)}">
 			<table>
 				<tr>
 					<th>titulo</th>
@@ -178,22 +178,7 @@
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 	<!-- rodape -->
 	<footer>
 		<div class="main-content">

@@ -1,8 +1,8 @@
 package com.catalogoweb.CatalogoLoja.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -30,7 +30,7 @@ public class BuscaProduto {
 		return "buscaProduto";
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	@GetMapping("/mostrar")
 	public String mostrar(
 			@RequestParam(name="nome", required = false) String nome,
@@ -53,26 +53,15 @@ public class BuscaProduto {
 		return "buscaProduto";
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	@GetMapping("/remove/{id}")
 	public String remove(@PathVariable("id") Integer idProduto,
 							HttpSession sessao,
 							RedirectAttributes attr) {
 		
-		List<Produto> produtosCadastrados = (List<Produto>) sessao.getAttribute("produtosCadastrados");
+		produtoRepository.deleteById(idProduto);
 		
-		Produto produt = new Produto();
-		
-		produt.setId(idProduto);
-		
-		boolean removido = produtosCadastrados.remove(produt);
-		
-		if(removido) {
-			attr.addFlashAttribute("msgSucesso", "Usuario removido com sucesso!");
-		} else {
-			attr.addFlashAttribute("msgErro", "Não foi possivel remover!");
-		}
-		
+		attr.addFlashAttribute("msgSucesso", "Produto removido com sucesso");
 		return "redirect:/produtos/mostrar";
 	}
 	
