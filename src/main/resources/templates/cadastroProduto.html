@@ -53,7 +53,7 @@
 	
 	<div class="cadastro">
 		<form th:action="@{/produtos/salvar}" th:object="${produto}"
-				 class="form" method="post">
+				 class="form" method="post" enctype="multipart/form-data">
 				 
 			<input type="hidden" th:field="${produto.id}">	 
 				 
@@ -81,15 +81,17 @@
 			</div>
 			
 			
-			<!--  <div class="row">
-				<input type="file" name="file" class="input" id="file" 
+			  <div class="row">
+			  
+				<input type="file" th:name="file" class="input" id="file" 
 				accept="/image/*" onchange="previewImage();">
+				<input type="hidden" th:field="${produto.foto.id}">
 				
 				<div class="img_preview">
 					<img id="preview" src="/img/img.png">
 				</div>
 				
-			</div>-->
+			</div>
 			
 			
 			
