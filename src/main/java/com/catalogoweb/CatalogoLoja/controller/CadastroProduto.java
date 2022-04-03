@@ -60,10 +60,12 @@ public class CadastroProduto {
 		try{
 			
 			if(arquivo != null && !arquivo.isEmpty()) {
+				//normalizando nome do arquivo
 				String nomeArquivo = StringUtils.cleanPath(arquivo.getOriginalFilename());
 				
 				Arquivo arquivoBD = new Arquivo(null, nomeArquivo, arquivo.getContentType(),
 						arquivo.getBytes());
+				
 				arquivoRepository.save(arquivoBD);
 				
 				if(produto.getFoto() != null && produto.getFoto().getId() != null 

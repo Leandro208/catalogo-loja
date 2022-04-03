@@ -46,7 +46,11 @@ public class BuscaProduto {
 		model.addAttribute("produtosEncontrados", produtosEncontrados);
 		if(mostrarTodosDados != null) {
 			model.addAttribute("mostrarTodosDados", true);
+		} else {
+			model.addAttribute("mostrarTodosDados", false);
 		}
+		
+		
 		
 		model.addAttribute("nomeBuscado", nome);
 		

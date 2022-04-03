@@ -80,7 +80,7 @@
 			<div class="box_product" th:each="p : ${produtosEncontrados}">
 			
 				<div class="image">
-					<img alt="" src="img/fone.png">
+					<img th:if="${p.foto != null}" th:src="@{/download/} + ${p.foto.id} + '?salvar=false'" style="max-height: 128px;" />
 				</div>
 				
 				<div class="legend">

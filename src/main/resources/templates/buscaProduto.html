@@ -80,26 +80,31 @@
 		</form>
 		
 		<div th:if="${not #lists.isEmpty(produtosEncontrados)}">
-			<table>
+			<!-- EXIBIÇÃO detalhada Produtos -->
+			<table th:if="${mostrarTodosDados} == true">
 				<tr>
+					<th>Foto</th>
 					<th>titulo</th>
 					<th>Fabricante</th>
 					<th>Categoria</th>
 					<th>Preço venda</th>
-					<th th:if="${mostrarTodosDados} == true">Preço custo</th>
-					<th th:if="${mostrarTodosDados} == true">Descrição</th>
+					<th>Preço custo</th>
+					<th>Descrição</th>
 					<th>Opções</th>
 				</tr>
 			
 					<tr th:each="p : ${produtosEncontrados}">
+						<td>
+                        	<img th:if="${p.foto != null}" th:src="@{/download/} + ${p.foto.id} + '?salvar=false'" style="max-height: 128px;" />
+                        	
+                        </td>
 						<td th:text="${p.titulo}"></td>
 						<td th:text="${p.fabricante}"></td>
 						<td th:text="${p.categoria}"></td>
 						<td th:text="${p.precoVenda}"></td>
-						<td th:if="${mostrarTodosDados} == true"
-							th:text="${p.precoCusto}"></td>
-						<td th:if="${mostrarTodosDados} == true"
-							><p th:text="${p.descricao}"></p></td>
+						<td th:text="${p.precoCusto}"></td>
+						<td>
+						<p th:text="${p.descricao}"></p></td>
 							
 						<td>
 						
@@ -115,21 +120,22 @@
 				
 				
 			</table>
-		</div>
 		
-		<!-- EXIBIÇÃO 2 Produtos 
 		
-		<div class="conteudo_ofertas">
-			<div class="box_product">
+		<!-- EXIBIÇÃO 2 Produtos -->
+		
+		<div class="conteudo_ofertas" th:if="${mostrarTodosDados} == false">
+			
+			<div class="box_product" th:each="p : ${produtosEncontrados}">
 			
 				<div class="image">
-					<img alt="" src="/img/fone.png">
+					<img th:if="${p.foto != null}" th:src="@{/download/} + ${p.foto.id} + '?salvar=false'" style="max-height: 128px;" />
 				</div>
 				
 				<div class="legend">
-					<h3 class="title">Fone</h3>
+					<h3 class="title" th:text="${p.titulo}"></h3>
 					<div class="subLegend">
-						<div class="preco">R$ 1.000,00 <span>A vista</span></div>
+						<div class="preco" th:text="${p.precoVenda}"><span>A vista</span></div>
 					 <div class="stars">
 							<img alt="" src="/img/cart.png"> 
 						</div> 
@@ -140,34 +146,8 @@
 				</div>
 			</div>
 			
-			
-			<div class="box_product">
-			
-				<div class="image">
-					<img alt="" src="/img/fone.png">
-				</div>
-				
-				<div class="legend">
-					<h3 class="title">Fone</h3>
-					<div class="subLegend">
-						<div class="preco">R$ 1.000,00 <span>A vista</span></div>
-						<div class="stars">
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star"></i> 
-							<i class="fas fa-star-half"></i> 
-						</div>
-					</div>
-				</div>
-				<div class="overlay">
-					<a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-					<a href="#" style="--i:2;" class="fas fa-heart"></a>
-					<a href="#" style="--i:3;" class="fas fa-search"></a>
-				</div>
-			</div>
 		</div> 
-		-->
+		</div>
 	</div>
 
 
