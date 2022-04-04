@@ -41,7 +41,7 @@ public class BuscaProduto {
 		
 		
 		
-		List<Produto> produtosEncontrados = produtoRepository.findByTitulo(nome);
+		List<Produto> produtosEncontrados = produtoRepository.findByTitulo(nome.toUpperCase());
 		
 		model.addAttribute("produtosEncontrados", produtosEncontrados);
 		if(mostrarTodosDados != null) {
@@ -51,8 +51,9 @@ public class BuscaProduto {
 		}
 		
 		
-		
+		if(nome != null ) {
 		model.addAttribute("nomeBuscado", nome);
+		} 
 		
 		return "buscaProduto";
 	}

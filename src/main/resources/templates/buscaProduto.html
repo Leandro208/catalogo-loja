@@ -15,6 +15,7 @@
 <link href="/css/cabecalho.css" type="text/css" rel="stylesheet" />
 <link href="/css/busca.css" type="text/css" rel="stylesheet" />
 <link href="/css/card.css" type="text/css" rel="stylesheet" />
+<link href="/css/tabela.css" type="text/css" rel="stylesheet" />
 <script src="https://kit.fontawesome.com/0c25c3c076.js"
 	crossorigin="anonymous"></script>
 </head>
@@ -59,7 +60,7 @@
 			</div>
 			
 			<div class="campo_text">
-				<input type="text" th:name="nome" class="input" placeholder="Digite o que você procura">
+				<input type="text" th:name="nome" class="input" placeholder="Digite o que você procura" required>
 				<input class="btn" type="submit" value="Buscar">
 				
 				<div class="check">
@@ -67,7 +68,6 @@
 					<label>Mostrar todos os dados</label>
 				</div>
 			</div>
-			
 			
 			
 			<div class="nomeProduto">
@@ -81,46 +81,36 @@
 		
 		<div th:if="${not #lists.isEmpty(produtosEncontrados)}">
 			<!-- EXIBIÇÃO detalhada Produtos -->
-			<table th:if="${mostrarTodosDados} == true">
-				<tr>
-					<th>Foto</th>
-					<th>titulo</th>
-					<th>Fabricante</th>
-					<th>Categoria</th>
-					<th>Preço venda</th>
-					<th>Preço custo</th>
-					<th>Descrição</th>
-					<th>Opções</th>
-				</tr>
-			
-					<tr th:each="p : ${produtosEncontrados}">
-						<td>
-                        	<img th:if="${p.foto != null}" th:src="@{/download/} + ${p.foto.id} + '?salvar=false'" style="max-height: 128px;" />
-                        	
-                        </td>
-						<td th:text="${p.titulo}"></td>
-						<td th:text="${p.fabricante}"></td>
-						<td th:text="${p.categoria}"></td>
-						<td th:text="${p.precoVenda}"></td>
-						<td th:text="${p.precoCusto}"></td>
-						<td>
-						<p th:text="${p.descricao}"></p></td>
-							
-						<td>
-						
-						<a th:href="'/produtos/editar/' + ${p.id}">Editar</a>
-						
-						<a th:href="'/produtos/remove/' + ${p.id}"
-							onClick="if (!confirm('Deseja realmente remover o produto?')) return false;">Remover</a>
-						
-						</td>
-						
-						
-					</tr>
-				
-				
-			</table>
-		
+		<table th:if="${mostrarTodosDados} == true">
+		    <thead>
+		      <tr>
+		        <th>Foto</th>
+				<th>titulo</th>
+				<th>Fabricante</th>
+				<th>Categoria</th>
+				<th>Preço venda</th>
+				<th>Preço custo</th>
+				<th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr th:each="p : ${produtosEncontrados}">
+		        <td data-title="Foto">
+		            <img th:if="${p.foto != null}" th:src="@{/download/} + ${p.foto.id} + '?salvar=false'" style="max-height: 64px;" />           	
+		        </td>
+			    <td data-title="Titulo" th:text="${p.titulo}"></td>
+				<td data-title="Fabricante" th:text="${p.fabricante}"></td>
+				<td data-title="Categoria" th:text="${p.categoria}"></td>
+				<td data-title="Preço venda" th:text="${p.precoVenda}"></td>
+				<td data-title="Preço custo" th:text="${p.precoCusto}"></td>				
+		        <td>
+		          <button><a th:href="'/produtos/editar/' + ${p.id}">Editar</a></button>
+		          <button><a th:href="'/produtos/remove/' + ${p.id}"
+						onClick="if (!confirm('Deseja realmente remover o produto?')) return false;">Remover</a></button>
+		        </td>
+		      </tr>
+		    </tbody>
+	  </table>
 		
 		<!-- EXIBIÇÃO 2 Produtos -->
 		
@@ -135,7 +125,7 @@
 				<div class="legend">
 					<h3 class="title" th:text="${p.titulo}"></h3>
 					<div class="subLegend">
-						<div class="preco" th:text="${p.precoVenda}"><span>A vista</span></div>
+						<div class="preco" th:text="'R$' + ${p.precoVenda}"></div><label>A Vista</label>
 					 <div class="stars">
 							<img alt="" src="/img/cart.png"> 
 						</div> 

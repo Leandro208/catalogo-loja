@@ -34,7 +34,7 @@
 			<li>
 			<form th:action="@{/produtos/mostrar}" method="get">
 			
-				<input type="text" th:name="nome" class="input" placeholder="Digite o que você procura">
+				<input type="text" th:name="nome" class="input" placeholder="Digite o que você procura" required>
 				<input class="btn" type="submit" value="Buscar">
 				
 			</form>
@@ -86,7 +86,8 @@
 				<div class="legend">
 					<h3 class="title" th:text="${p.titulo}"></h3>
 					<div class="subLegend">
-						<div class="preco" th:text="${p.precoVenda}"><span>A vista</span></div>
+						<div class="preco" th:text="'R$' + ${p.precoVenda}"></div><label>A Vista</label>
+						
 					 <div class="stars">
 							<img alt="" src="img/cart.png"> 
 						</div> 
