@@ -12,4 +12,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 	
 	@Query("select p from Produto p where UPPER(p.titulo) like %:titulo%")
 	List<Produto> findByTitulo(@Param("titulo") String titulo);
+	
+
 }

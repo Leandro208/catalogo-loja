@@ -2,6 +2,7 @@ package com.catalogoweb.CatalogoLoja.dominio;
 
 import java.util.Objects;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +36,8 @@ public class Produto {
 	@Column(nullable = false)
 	private String precoCusto;
 	
-	@Column(nullable = false)
+	
+	@Column(nullable = false, length=1000)
 	private String descricao;
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
