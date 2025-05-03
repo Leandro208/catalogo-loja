@@ -37,7 +37,7 @@ public class Produto {
 	private String precoCusto;
 	
 	
-	@Column(nullable = false, length=1000)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String descricao;
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
